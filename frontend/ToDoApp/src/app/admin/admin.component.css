@@ -1,0 +1,10 @@
+.alert-warning {
+    background-color: #fff3cd !important;
+}
+.alert-success {
+    color: #155724 !important;
+    background-color: #d4edda !important;
+}
+li{
+    cursor: pointer;
+}

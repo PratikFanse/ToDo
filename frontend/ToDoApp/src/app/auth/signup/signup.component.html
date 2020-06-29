@@ -1,0 +1,71 @@
+<div >
+                  
+    <!-- form card register -->
+    <div class="card card-outline-secondary">
+        <div class="card-header">
+            <h3 class="mb-0">Sign Up</h3>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="signUpForm">
+                <div class="form-group">
+                    <label for="fName">First Name</label>
+                    <input type="text" class="form-control" id="fName" placeholder="First name" required formControlName="fname">
+                    <div *ngIf="fname.invalid && fname.touched">
+                        <br> <div class="alert alert-danger"> Enter valid Name</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lName">Last Name</label>
+                    <input type="text" class="form-control" id="lName" placeholder="Last name" required formControlName="lname">
+                    <div *ngIf="lname.invalid && lname.touched" >
+                        <br> <div class="alert alert-danger"> Enter valid last name</div>
+                </div>
+                </div>
+                <div class="form-group">
+                        <p>The datepicker's placement is bottom</p>
+                        <input class="form-control"
+                        type="date"
+                        formControlName="bdate"
+                        required
+                        placeholder="Datepicker">
+                        <div *ngIf="error" ><br> <div class="alert alert-danger"> {{error}} </div> </div>
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" id="Email" placeholder="Email"  formControlName="email">
+                    <div *ngIf="email.invalid && email.touched" class="alert alert-danger"> 
+                        <br> <div class="alert alert-danger">
+                            Enter valid email </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Pass">Password</label>
+                    <input type="password"  class="form-control" id="Pass" placeholder="Password" formControlName="pass">
+                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                        <br>
+                        <div *ngIf="pass.errors?.required" class="alert alert-danger">
+                            Empty password field does not allowed
+                        </div>
+                        <div *ngIf="pass.errors?.pattern" class="alert alert-danger"> 
+                            Must contain at least one number and one uppercase and lowercase letter
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Verify">Verify</label>
+                    <input type="password" class="form-control" id="Verify" placeholder="Password (again)" required="" formControlName="cpass">                   
+                    <div *ngIf="pass.value!=cpass.value && cpass.touched"> <br> <div class="alert alert-danger"> Confirm password not match</div></div>
+                    
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="signUpForm.invalid">Signup</button>
+                    | 
+                    <button type="button" class="btn btn-success" (click)="changeMode()">Go to Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /form card register -->
+
+</div>

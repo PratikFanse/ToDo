@@ -1,0 +1,79 @@
+<div class="container">
+    
+
+  
+    <br>
+    <br>
+    <br>
+  
+     
+    <div class="row " style="margin: auto;">
+      
+     <div class="col-lg-4">
+     
+      <b>Record of last 7 days</b>
+      <ul class="list-group">
+        <li class="list-group-item" (click)="newUser()"><a  style="cursor: pointer;">New Users</a></li>
+        <li class="list-group-item" (click)="addedTasks()"><a style="cursor: pointer;">Tasks added by Users</a></li>
+        <li class="list-group-item" (click)="lastActive()"><a style="cursor: pointer;">Active Users</a></li>
+      </ul>
+    </div>
+    <!-- <google-chart [type]="myType" [data]="myData" [options]='options' style="width: 100%;"></google-chart> -->
+    <!-- New Users Graph Details -->
+     <!-- <div class="col-lg-2" style=" text-align: right;" *ngIf="changeGraph==='new'"><b>Total : {{regCountPer}}</b></div> -->
+      <!-- <div class="col-lg-6 progress-box" *ngIf="changeGraph==='new'">-->
+      <div class="col-lg-8 " *ngIf="changeGraph==='new'">
+
+        <div class="row ">
+          <google-chart [type]="myType" [data]="myData" [options]='options' style="width: 100%; height: 400px;"></google-chart>
+          <!-- <div class="cust-col-lg-2 " style="margin: auto;" *ngFor="let data of graphData;">
+            <div class="progress" style="height:300px">
+              <div class="progress-bar" [ngStyle]="{'height.%':getPercent(data.regcount,regCountPer)}">{{data.regcount}}</div>
+            </div>
+            <div style=" text-align: center;">{{data.date|  slice:5}}</div>
+          </div> -->
+          
+        </div>
+      </div>
+      
+      
+      <!-- Total task Graph Details -->
+      <!-- <div class="col-lg-2" style=" text-align: right;" *ngIf="changeGraph==='tasks'"><b>Total : {{taksCount}}</b></div> -->
+      <!-- <div class="col-lg-6 progress-box" *ngIf="changeGraph==='tasks'"> -->
+        <div class="col-lg-8 " *ngIf="changeGraph==='tasks'">
+        <div class="row ">
+          <google-chart [type]="myType" [data]="myData" [options]='options' style="width: 100%; height: 400px"></google-chart>
+          <!-- <div class="cust-col-lg-2 " style="margin: auto;" *ngFor="let data of graphData;">
+            <div class="progress" style="height:300px">
+              <div class="progress-bar" [ngStyle]="{'height.%':getPercent(data.taskcount,taksCount)}">{{data.taskcount}}</div>
+            </div>
+            <div style=" text-align: center;">{{data.date|  slice:5}}</div>
+          </div> -->
+          
+        </div>
+      </div>
+      <!-- Active Users Graph Details -->
+       <!-- <div class="col-lg-2" style=" text-align: right;" *ngIf="changeGraph==='active'"><b>Total : {{activeCount}}</b></div> -->
+        <!-- <div class="col-lg-6 progress-box" *ngIf="changeGraph==='active'">
+           -->
+        <div class="col-lg-8" *ngIf="changeGraph==='active'">
+
+          
+          <div class="row ">
+            <google-chart [type]="myType" [data]="myData" [options]='options' style="width: 100%; height: 400px"></google-chart>
+<!--            
+           <div class="cust-col-lg-2 " style="margin: auto;" *ngFor="let data of userLog;">
+             <div class="progress" style="height:300px">
+               <div class="progress-bar" [ngStyle]="{'height.%':getPercent(data.count,activeCount)}">{{data.count}}</div>
+             </div>
+             <div style=" text-align: center;">{{data.date|  slice:5}}</div>
+           </div> -->
+           
+          </div>
+        </div>
+        
+     <div class="col-lg-1"></div>
+
+       
+    </div>
+</div>

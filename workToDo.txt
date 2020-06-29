@@ -1,0 +1,1 @@
+Spring security, Global exceptional handling, Session management, Graph/DataTable implementation and Git

@@ -1,0 +1,46 @@
+<!-- <app-nav></app-nav> -->
+<div class="row ">
+    <div class="col-lg-8 " style="margin: auto;">
+        <br>
+        <br>
+        <form (ngSubmit)="onAddTask(tf.value)" #tf="ngForm">
+                <div class="row">
+                  <div class="col-sm-12 form-group">
+                    <label for="name">Add task</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name" 
+                      ngModel
+                      required >
+                  </div>
+                  <div class="form-group" style="display:none;">
+                    <input type="number" value="0" class="form-control" name="id" ngModel  >
+                  </div>
+                  <div class="form-group" style="display:none;">
+                    <input type="number" value="pending" class="form-control" name="status" ngModel >
+                  </div>
+                  <!-- <div class="col-sm-12 form-group">
+                  <label for="comment">Desciptioon:</label>
+                    <textarea class="form-control" rows="3" id="comment" maxlength="150" placeholder="Character limit is 150"></textarea>
+                </div> -->
+                
+                  <div class="col-md-12 form-group" > 
+                    <!-- <button class="btn btn-success" type="submit" [disabled]="!tf.valid">Add</button> -->
+                    <button class="btn btn-success" type="submit" [disabled]="!tf.valid">{{editMode ? 'Update' :"Add"}}</button>
+                     <button class="btn btn-danger" type="button" (click)="onClear()">Clear</button>
+                   <button class="btn btn-primary" type="button" (click)="onComplete()" *ngIf="editMode && tf.value.status==='pending'">Mark as Complete</button>
+                      <!-- {{tf.value.status}} -->
+                    </div>
+                </div>
+              </form>
+              <hr>
+              <div *ngIf="tasks===null">"Please add todays task"</div>
+              <ul class="list-group">
+                <li [ngClass]="t.status==='pending'? 'alert-warning':'alert-success'" class="list-group-item list-group-item-action" *ngFor="let t of tasks; let i =index" 
+                (click)="onEditTask(i)"><div >{{t.task}}      <a class="float-right"><a class="alert-link ">View/Edit </a>| status: {{t.status}}</a> </div>  </li>
+                </ul>
+    </div>
+          
+   
+</div>
